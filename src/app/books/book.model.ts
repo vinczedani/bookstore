@@ -17,5 +17,6 @@ interface IVolumeinfo {
 }
 
 export class Book {
+  id: string;
   volumeinfo: IVolumeinfo;
 }

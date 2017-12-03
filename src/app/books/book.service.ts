@@ -11,7 +11,7 @@ interface IGetVolumesResponse {
 
 @Injectable()
 export class BookService {
-  books: Book[];
+  private books: Book[];
   booksLoaded = new Subject<Book[]>();
 
   constructor(

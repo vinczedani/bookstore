@@ -9,6 +9,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { BookListElementComponent } from './books/book-list-element/book-list-element.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -20,12 +22,14 @@ describe('AppComponent', () => {
         HeaderComponent,
         SidebarComponent,
         BookListElementComponent,
+        CartComponent,
       ],
       imports: [
         AppRoutingModule,
         FormsModule,
       ],
       providers: [
+        CartService,
         { provide: APP_BASE_HREF, useValue: '/' }],
     }).compileComponents();
   }));

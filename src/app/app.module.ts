@@ -11,6 +11,9 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BookService } from './books/book.service';
 import { BookListElementComponent } from './books/book-list-element/book-list-element.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { BookListElementComponent } from './books/book-list-element/book-list-el
     HeaderComponent,
     SidebarComponent,
     BookListElementComponent,
+    CartComponent,
+    CartItemComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -29,6 +34,7 @@ import { BookListElementComponent } from './books/book-list-element/book-list-el
   ],
   providers: [
     BookService,
+    CartService,
   ],
   bootstrap: [AppComponent],
 })

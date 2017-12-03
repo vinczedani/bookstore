@@ -20,7 +20,6 @@ export class BookListComponent implements OnInit, OnDestroy {
   ) { }
 
   searchBooks() {
-    console.log(this.searchTerm);
     if (this.searchTerm.length > 0) {
       this.bookService.searchBooks(this.searchTerm);
     }

@@ -1,0 +1,9 @@
+<div>
+  <div>Shopping Cart</div>
+  <div *ngFor="let cartItem of inCartBooks">
+      <app-cart-item [item]="cartItem"></app-cart-item>
+  </div>
+  <div *ngIf="inCartBooks.length > 0">
+    <button class="btn btn-sm btn-danger" (click)="emptyCart()">Empty Cart</button>
+  </div>
+</div>

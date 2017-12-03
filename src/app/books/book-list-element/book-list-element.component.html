@@ -1,3 +1,16 @@
-<div>
-  {{ book.volumeInfo.title }}
+<div class="row">
+  <div class="col-sm-4">
+    <img [src]="book.volumeInfo.imageLinks.smallThumbnail" width="60%"/>
+  </div>
+  <div class="col-sm-8">
+    <div>
+        {{ book.volumeInfo.title }}        
+    </div>
+    <div>
+        <button class="btn btn-info">Details</button>        
+    </div>
+    <div>
+        <button class="btn btn-success" (click)="addToCart()">Add to cart</button>        
+    </div>
+  </div>
 </div>
