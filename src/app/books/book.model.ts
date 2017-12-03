@@ -1,4 +1,4 @@
-interface IVolumeinfo {
+interface IVolumeInfo {
   authors: string[];
   averageRating: number;
   categories: string[];
@@ -18,5 +18,5 @@ interface IVolumeinfo {
 
 export class Book {
   id: string;
-  volumeinfo: IVolumeinfo;
+  volumeInfo: IVolumeInfo;
 }
