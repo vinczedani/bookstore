@@ -11,6 +11,7 @@ import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { BookListElementComponent } from './books/book-list-element/book-list-element.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -23,6 +24,7 @@ describe('AppComponent', () => {
         SidebarComponent,
         BookListElementComponent,
         CartComponent,
+        CartItemComponent,
       ],
       imports: [
         AppRoutingModule,
