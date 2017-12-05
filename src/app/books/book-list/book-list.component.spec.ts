@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BookListComponent } from './book-list.component';
 import { BookService } from '../book.service';
 import { BookListElementComponent } from '../book-list-element/book-list-element.component';
+import { PagerComponent } from '../pager/pager.component';
 
 describe('BookListComponent', () => {
   let component: BookListComponent;
@@ -15,6 +16,7 @@ describe('BookListComponent', () => {
       declarations: [
         BookListComponent,
         BookListElementComponent,
+        PagerComponent,
       ],
       imports: [
         FormsModule,

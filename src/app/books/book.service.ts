@@ -13,7 +13,6 @@ interface IGetVolumesResponse {
 export class BookService {
   private books: Book[];
   private queryString: string;
-  private pageSize = 10;
 
   currentPage: number;
   maxPage: number;
@@ -56,27 +55,18 @@ export class BookService {
     this.sendRequest();
   }
 
-  setPageSize(newSize: number) {
-    if (newSize > 40 || newSize < 1) {
-      return;
-    }
-
-    this.pageSize = newSize;
-  }
-
   private sendRequest() {
-    const skip = this.pageSize * (this.currentPage - 1);
+    const skip = 10 * (this.currentPage - 1);
 
     const params = new HttpParams()
     .set('q', this.queryString)
-    .set('maxResults', '' + this.pageSize)
     .set('startIndex', '' + skip)
     .set('printType', 'books');
 
     this.http.get('https://www.googleapis.com/books/v1/volumes', { params: params })
     .subscribe((res: IGetVolumesResponse) => {
       this.books = res.items;
-      this.maxPage = Math.ceil(res.totalItems / this.pageSize);
+      this.maxPage = Math.ceil(res.totalItems / 10);
       this.booksLoaded.next(this.books.slice());
       this.maxPagesChanged.next(this.maxPage);
     });

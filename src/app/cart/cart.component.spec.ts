@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 import { CartComponent } from './cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
@@ -13,6 +15,10 @@ describe('CartComponent', () => {
       declarations: [
         CartComponent,
         CartItemComponent,
+      ],
+      imports: [
+        ModalModule.forRoot(),
+        BootstrapModalModule,
       ],
       providers: [CartService],
     })

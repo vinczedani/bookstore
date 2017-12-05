@@ -23,7 +23,10 @@ export class BookListElementComponent implements OnInit {
   }
 
   showDetails() {
-    this.modal.open(BookDetailComponent, overlayConfigFactory({ book: this.book }, BookDetailModalContext));
+    this.modal.open(
+      BookDetailComponent,
+      overlayConfigFactory({ book: this.book }, BookDetailModalContext),
+    );
   }
 
   addToCart() {

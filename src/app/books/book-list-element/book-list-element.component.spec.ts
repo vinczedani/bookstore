@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 import { BookListElementComponent } from './book-list-element.component';
 import { CartService } from '../../cart/cart.service';
@@ -12,6 +14,7 @@ describe('BookListElementComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BookListElementComponent ],
       providers: [CartService],
+      imports: [ModalModule.forRoot(), BootstrapModalModule],
     })
     .compileComponents();
   }));
@@ -24,6 +27,7 @@ describe('BookListElementComponent', () => {
         smallThumbnail: 'http://via.placeholder.com/200x250',
         thumbnail: 'http://via.placeholder.com/200x250',
       },
+      authors: ['John Doe'],
     });
     fixture.detectChanges();
   });

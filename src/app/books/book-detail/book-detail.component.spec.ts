@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 import { BookDetailComponent } from './book-detail.component';
 
@@ -9,6 +11,10 @@ describe('BookDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BookDetailComponent ],
+      imports: [
+        ModalModule.forRoot(),
+        BootstrapModalModule,
+      ],
     })
     .compileComponents();
   }));

@@ -1,6 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +14,7 @@ import { BookListElementComponent } from './books/book-list-element/book-list-el
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { PagerComponent } from './books/pager/pager.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -25,10 +28,13 @@ describe('AppComponent', () => {
         BookListElementComponent,
         CartComponent,
         CartItemComponent,
+        PagerComponent,
       ],
       imports: [
         AppRoutingModule,
         FormsModule,
+        ModalModule.forRoot(),
+        BootstrapModalModule,
       ],
       providers: [
         CartService,
