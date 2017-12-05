@@ -1,13 +1,16 @@
 <div class="row" style="padding-bottom: 2%;">
   <div class="col-xs-4">
-    <img [src]="book.volumeInfo.imageLinks.smallThumbnail" width="60%"/>
+    <img
+      [src]="book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail ||
+      'https://i.pinimg.com/originals/f2/a8/0e/f2a80ee8087d750080763918df53d2be.jpg'"
+      width="60%"/>
   </div>
   <div class="col-xs-8">
-    <div class="book-title" (click)="showDetails()">
+    <div class="book-title clickable" (click)="showDetails()">
       {{ book.volumeInfo.title }}
     </div>
     <div>
-      {{ book.volumeInfo.authors.join(', ') }}
+      {{ book.volumeInfo.authors && book.volumeInfo.authors.join(', ') || 'unknown' }}
     </div>
     <div class="row button-row">
         <button class="btn btn-success" (click)="addToCart()">Add to cart</button>        

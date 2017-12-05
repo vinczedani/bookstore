@@ -27,7 +27,7 @@ export class BookDetailComponent implements OnInit, OnDestroy, CloseGuard, Modal
 
   ngOnInit() {
     this.book = this.dialog.context.book;
-    const description = this.book.volumeInfo.description;
+    const description = this.book.volumeInfo.description || '';
     if (description.length > 100) {
       this.shortDescription = description.split(' ').slice(0, 20).join(' ');
       this.showFullDescription = false;

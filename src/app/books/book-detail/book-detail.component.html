@@ -1,23 +1,29 @@
 <div class="row" style="padding: 5%">
   <div class="col-xs-5">
-      <img [src]="book.volumeInfo.imageLinks.thumbnail"/>
+      <img
+      [src]="book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ||
+      'https://i.pinimg.com/originals/f2/a8/0e/f2a80ee8087d750080763918df53d2be.jpg'"
+      width="60%"/>
   </div>
   <div class="col-xs-7">
     <div class="book-title">{{ book.volumeInfo.title }}</div>
-    <div>{{ book.volumeInfo.authors.join(', ') }}</div>
+    <div>{{ book.volumeInfo.authors && book.volumeInfo.authors.join(', ') || 'unknown' }}</div>
+    
     <div>{{ book.volumeInfo.publishedDate | date }}</div>
     <br/>
-    <div>Categories: {{ book.volumeInfo.categories.join(', ') }}</div>
+    <div *ngIf="book.volumeInfo.categories">Categories: {{ book.volumeInfo.categories.join(', ') }}</div>
     <div *ngIf="book.volumeInfo.averageRating">Rating: {{ book.volumeInfo.averageRating }} ({{ book.volumeInfo.ratingsCount }})</div>
-    <div *ngIf="showFullDescription">Description: {{ book.volumeInfo.description }}
-        <span
-          class="clickable"
-          style="color: blue"
-          (click)="showFullDescription = false"
-          *ngIf="book.volumeInfo.description.length > 100"> less...</span>        
-    </div>
-    <div *ngIf="!showFullDescription">Description: {{ shortDescription }}
-      <span class="clickable" style="color: blue" (click)="showFullDescription = true">...more</span>
+    <div *ngIf="book.volumeInfo.description">
+      <div *ngIf="showFullDescription">Description: {{ book.volumeInfo.description }}
+          <span
+            class="clickable"
+            style="color: blue"
+            (click)="showFullDescription = false"
+            *ngIf="book.volumeInfo.description.length > 100"> less...</span>        
+      </div>
+      <div *ngIf="!showFullDescription">Description: {{ shortDescription }}
+        <span class="clickable" style="color: blue" (click)="showFullDescription = true">...more</span>
+      </div>
     </div>
 
     <div class="row align-bottom button-row">
