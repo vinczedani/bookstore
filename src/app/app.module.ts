@@ -14,6 +14,7 @@ import { BookListElementComponent } from './books/book-list-element/book-list-el
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { PagerComponent } from './books/pager/pager.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     BookListElementComponent,
     CartComponent,
     CartItemComponent,
+    PagerComponent,
   ],
   imports: [
     AppRoutingModule,

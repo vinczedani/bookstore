@@ -12,7 +12,9 @@
       <button class="btn btn-success" type="submit">SEARCH</button>        
     </form>
   </div>
+  <app-pager></app-pager>
   <div *ngFor="let book of books">
     <app-book-list-element [book]="book"></app-book-list-element>
   </div>
+  <app-pager></app-pager>  
 </div>
