@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { Book } from '../books/book.model';
+import { Book } from '../../books/book.model';
 import { CartElement } from './cartElement.model';
 
 const LOCALSTORAGE_CART_KEY = 'Bookstore-Localstorage-ShoppingCart';

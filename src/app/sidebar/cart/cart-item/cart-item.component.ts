@@ -3,7 +3,7 @@ import { Modal, overlayConfigFactory } from 'angular2-modal';
 
 import { CartElement } from '../cartElement.model';
 import { CartService } from '../cart.service';
-import { BookDetailComponent, BookDetailModalContext } from '../../books/book-detail/book-detail.component';
+import { BookDetailComponent, BookDetailModalContext } from '../../../books/book-detail/book-detail.component';
 
 @Component({
   selector: 'app-cart-item',

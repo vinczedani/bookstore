@@ -7,34 +7,24 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app.routing';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { BookListComponent } from './books/book-list/book-list.component';
-import { BookDetailComponent } from './books/book-detail/book-detail.component';
-import { BookListElementComponent } from './books/book-list-element/book-list-element.component';
-import { CartComponent } from './cart/cart.component';
-import { CartService } from './cart/cart.service';
-import { CartItemComponent } from './cart/cart-item/cart-item.component';
-import { PagerComponent } from './books/pager/pager.component';
+import { CartService } from './sidebar/cart/cart.service';
+import { SidebarModule } from './sidebar/sidebar.module';
+import { BooksModule } from './books/books.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        BookListComponent,
-        BookDetailComponent,
         HeaderComponent,
-        SidebarComponent,
-        BookListElementComponent,
-        CartComponent,
-        CartItemComponent,
-        PagerComponent,
       ],
       imports: [
         AppRoutingModule,
         FormsModule,
         ModalModule.forRoot(),
         BootstrapModalModule,
+        SidebarModule,
+        BooksModule,
       ],
       providers: [
         CartService,

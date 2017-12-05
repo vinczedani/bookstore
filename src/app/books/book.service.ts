@@ -14,6 +14,7 @@ export class BookService {
   private books: Book[];
   private queryString: string;
 
+  requestedPage: number;
   currentPage: number;
   maxPage: number;
 
@@ -26,37 +27,37 @@ export class BookService {
 
   searchBooks(queryString: string) {
     this.queryString = queryString;
-    this.currentPage = 1;
+    this.requestedPage = 1;
 
     this.sendRequest();
   }
 
   getNextPage() {
-    if (this.currentPage === this.maxPage) {
+    if (this.requestedPage === this.maxPage) {
       return;
     }
-    this.currentPage += 1;
+    this.requestedPage += 1;
 
     this.sendRequest();
   }
 
   getPrevPage() {
-    if (this.currentPage === 1) {
+    if (this.requestedPage === 1) {
       return;
     }
-    this.currentPage -= 1;
+    this.requestedPage -= 1;
 
     this.sendRequest();
   }
 
   getPage(page: number) {
-    this.currentPage = page;
+    this.requestedPage = page;
 
     this.sendRequest();
   }
 
   private sendRequest() {
-    const skip = 10 * (this.currentPage - 1);
+    const skip = 10 * (this.requestedPage - 1);
 
     const params = new HttpParams()
     .set('q', this.queryString)
@@ -65,6 +66,7 @@ export class BookService {
 
     this.http.get('https://www.googleapis.com/books/v1/volumes', { params: params })
     .subscribe((res: IGetVolumesResponse) => {
+      this.currentPage = this.requestedPage;
       this.books = res.items;
       this.maxPage = Math.ceil(res.totalItems / 10);
       this.booksLoaded.next(this.books.slice());

@@ -3,7 +3,7 @@ import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { overlayConfigFactory } from 'angular2-modal';
 
 import { Book } from '../book.model';
-import { CartService } from '../../cart/cart.service';
+import { CartService } from '../../sidebar/cart/cart.service';
 import { BookDetailComponent, BookDetailModalContext } from '../book-detail/book-detail.component';
 
 @Component({

@@ -3,7 +3,6 @@
 [Github.io link](https://vinczedani.github.io/bookstore)
 
 Possible changes:
-- Create separate module for books/header/sidebar
 - page size should be changeable
 - UX/style imporvements
 - Folder structure could be better

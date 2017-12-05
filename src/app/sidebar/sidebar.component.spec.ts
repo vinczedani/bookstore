@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
-import { CartComponent } from '../cart/cart.component';
-import { CartService } from '../cart/cart.service';
-import { CartItemComponent } from '../cart/cart-item/cart-item.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;

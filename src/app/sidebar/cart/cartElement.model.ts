@@ -1,4 +1,4 @@
-import { Book } from '../books/book.model';
+import { Book } from '../../books/book.model';
 
 export class CartElement {
   book: Book;

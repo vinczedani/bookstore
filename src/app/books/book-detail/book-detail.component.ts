@@ -3,7 +3,7 @@ import { BSModalContext } from 'angular2-modal/plugins/bootstrap';
 
 import { Book } from '../book.model';
 import { DialogRef, CloseGuard, ModalComponent } from 'angular2-modal';
-import { CartService } from '../../cart/cart.service';
+import { CartService } from '../../sidebar/cart/cart.service';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
 export class BookDetailModalContext extends BSModalContext {

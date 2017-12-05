@@ -3,7 +3,7 @@ import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 import { BookListElementComponent } from './book-list-element.component';
-import { CartService } from '../../cart/cart.service';
+import { CartService } from '../../sidebar/cart/cart.service';
 import { Book } from '../book.model';
 
 describe('BookListElementComponent', () => {

@@ -5,7 +5,7 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { CartItemComponent } from './cart-item.component';
 import { CartService } from '../cart.service';
 import { CartElement } from '../cartElement.model';
-import { Book } from '../../books/book.model';
+import { Book } from '../../../books/book.model';
 
 describe('CartItemComponent', () => {
   let component: CartItemComponent;
