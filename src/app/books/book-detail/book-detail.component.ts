@@ -29,9 +29,7 @@ export class BookDetailComponent implements OnInit, OnDestroy, CloseGuard, Modal
     this.book = this.dialog.context.book;
     const description = this.book.volumeInfo.description;
     if (description.length > 100) {
-      console.log('description too long');
       this.shortDescription = description.split(' ').slice(0, 20).join(' ');
-      console.log(this.shortDescription);
       this.showFullDescription = false;
     }
   }

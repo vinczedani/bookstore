@@ -26,7 +26,6 @@ export class CartItemComponent implements OnInit {
   }
 
   showDetails() {
-    console.log('asd');
     this.modal.open(BookDetailComponent, overlayConfigFactory({ book: this.item.book }, BookDetailModalContext));
   }
 }
