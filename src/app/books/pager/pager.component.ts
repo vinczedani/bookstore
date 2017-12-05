@@ -9,12 +9,23 @@ import { BookService } from '../book.service';
   styleUrls: ['./pager.component.css'],
 })
 export class PagerComponent implements OnInit, OnDestroy {
+  static pageSize = 10;
+
   pageChangedSubscription: Subscription;
   pages: number[] = [];
 
   constructor(
     private bookService: BookService,
   ) { }
+
+  get pageSize() {
+    return PagerComponent.pageSize;
+  }
+
+  set pageSize(size: number) {
+    PagerComponent.pageSize = size;
+    this.bookService.setPageSize(size);
+  }
 
   ngOnInit() {
     this.pageChangedSubscription = this.bookService.maxPagesChanged.subscribe((newMaxPageCount) => {

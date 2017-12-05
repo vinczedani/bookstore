@@ -14,6 +14,8 @@ export class BookService {
   private books: Book[];
   private queryString: string;
 
+  private pageSize = 10;
+
   requestedPage: number;
   currentPage: number;
   maxPage: number;
@@ -24,6 +26,13 @@ export class BookService {
   constructor(
     private http: HttpClient,
   ) { }
+
+  setPageSize(size: number) {
+    this.pageSize = size;
+    this.requestedPage = 1;
+
+    this.sendRequest();
+  }
 
   searchBooks(queryString: string) {
     this.queryString = queryString;
@@ -57,18 +66,19 @@ export class BookService {
   }
 
   private sendRequest() {
-    const skip = 10 * (this.requestedPage - 1);
+    const skip = this.pageSize * (this.requestedPage - 1);
 
     const params = new HttpParams()
     .set('q', this.queryString)
     .set('startIndex', '' + skip)
+    .set('maxResults', '' + this.pageSize)
     .set('printType', 'books');
 
     this.http.get('https://www.googleapis.com/books/v1/volumes', { params: params })
     .subscribe((res: IGetVolumesResponse) => {
       this.currentPage = this.requestedPage;
       this.books = res.items;
-      this.maxPage = Math.ceil(res.totalItems / 10);
+      this.maxPage = Math.ceil(res.totalItems / this.pageSize);
       this.booksLoaded.next(this.books.slice());
       this.maxPagesChanged.next(this.maxPage);
     });

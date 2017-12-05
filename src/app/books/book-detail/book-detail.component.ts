@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogRef, ModalComponent } from 'angular2-modal';
 import { BSModalContext } from 'angular2-modal/plugins/bootstrap';
 
 import { Book } from '../book.model';
-import { DialogRef, CloseGuard, ModalComponent } from 'angular2-modal';
 import { CartService } from '../../sidebar/cart/cart.service';
-import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
 export class BookDetailModalContext extends BSModalContext {
   public book: Book;
@@ -15,7 +14,7 @@ export class BookDetailModalContext extends BSModalContext {
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.css'],
 })
-export class BookDetailComponent implements OnInit, OnDestroy, CloseGuard, ModalComponent<BookDetailModalContext> {
+export class BookDetailComponent implements OnInit, ModalComponent<BookDetailModalContext> {
   book: Book;
   showFullDescription = true;
   shortDescription = '';
@@ -34,10 +33,6 @@ export class BookDetailComponent implements OnInit, OnDestroy, CloseGuard, Modal
     }
   }
 
-  ngOnDestroy() {
-    this.dialog.destroy();
-  }
-
   addToCart() {
     this.cartService.addToCart(this.book);
     this.close();
@@ -45,12 +40,5 @@ export class BookDetailComponent implements OnInit, OnDestroy, CloseGuard, Modal
 
   close() {
     this.dialog.close();
-  }
-
-  beforeDismiss?(): boolean | Promise<boolean> {
-    throw new Error('Method not implemented.');
-  }
-  beforeClose?(): boolean | Promise<boolean> {
-    throw new Error('Method not implemented.');
   }
 }
