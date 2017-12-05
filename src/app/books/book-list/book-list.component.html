@@ -1,20 +1,24 @@
 <div>
-  <div>
-    <form class="form-group row" (ngSubmit)="searchBooks()">
+  <form class="form-group sm-pad-left" (ngSubmit)="searchBooks()">
+    <div class="row">    
       <input 
         [(ngModel)]="searchTerm"
         name="searchTerm"
         type="text" 
         placeholder="Searth term" 
-        class="col-md-6 form-control"
+        class="col-xs-6 form-control"
         style="width: 60%"
         required/>
-      <button class="btn btn-success" type="submit">SEARCH</button>        
-    </form>
+      <button class="btn btn-success col-xs-offset-1" type="submit">Search</button>        
+    </div>
+  </form>
+  <div>
+    <app-pager></app-pager>      
   </div>
-  <app-pager></app-pager>
   <div *ngFor="let book of books">
     <app-book-list-element [book]="book"></app-book-list-element>
   </div>
-  <app-pager></app-pager>  
+  <div>
+    <app-pager></app-pager>  
+  </div>
 </div>

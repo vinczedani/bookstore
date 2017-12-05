@@ -75,7 +75,6 @@ export class BookService {
 
     this.http.get('https://www.googleapis.com/books/v1/volumes', { params: params })
     .subscribe((res: IGetVolumesResponse) => {
-      console.log(res);
       this.books = res.items;
       this.maxPage = Math.ceil(res.totalItems / this.pageSize);
       this.booksLoaded.next(this.books.slice());

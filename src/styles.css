@@ -1,3 +1,21 @@
 .clickable {
-  cursor: pointer
+  cursor: pointer;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.sm-pad-left {
+  padding-left: 5%;
+}
+
+.book-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.button-row {
+  padding: inherit;
+  padding-top: 5%;
 }
