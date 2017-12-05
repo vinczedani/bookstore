@@ -11,3 +11,4 @@ Possible changes:
 - Investigate changing in response.totalItems
 - Investigate issue about removing Component from router breaks opening detail from shopping cart
 - Generic solution for paging (? npm package ?)
+- Fix no provider for DialogRef test issue
