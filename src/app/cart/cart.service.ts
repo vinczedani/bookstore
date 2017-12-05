@@ -23,7 +23,7 @@ export class CartService {
     const bookInCart = this.findById(book.id);
 
     if (bookInCart) {
-      bookInCart.addCopy();
+      bookInCart.count += 1;
     } else {
       const newCartElement = new CartElement(book, 1);
       this.booksInCart.push(newCartElement);

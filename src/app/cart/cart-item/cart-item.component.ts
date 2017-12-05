@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Modal, overlayConfigFactory } from 'angular2-modal';
 
 import { CartElement } from '../cartElement.model';
 import { CartService } from '../cart.service';
+import { BookDetailComponent, BookDetailModalContext } from '../../books/book-detail/book-detail.component';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,6 +15,7 @@ export class CartItemComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
+    private modal: Modal,
   ) { }
 
   ngOnInit() {
@@ -20,5 +23,10 @@ export class CartItemComponent implements OnInit {
 
   removeItem() {
     this.cartService.removeFromCart(this.item.book.id);
+  }
+
+  showDetails() {
+    console.log('asd');
+    this.modal.open(BookDetailComponent, overlayConfigFactory({ book: this.item.book }, BookDetailModalContext));
   }
 }

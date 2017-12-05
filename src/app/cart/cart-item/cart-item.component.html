@@ -1,5 +1,5 @@
 <div class="row">
   <div class="col-sm-2">{{ item.count }}x</div>
-  <div class="col-sm-6 col-sm-offset-1">{{ item.book.volumeInfo.title }}</div>
+  <div class="col-sm-6 col-sm-offset-1 clickable" (click)="showDetails()">{{ item.book.volumeInfo.title }}</div>
   <div class="clickable" style="color: red" (click)="removeItem()">X</div>
 </div>
